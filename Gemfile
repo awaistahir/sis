@@ -31,7 +31,13 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem 'rails_admin', '~> 1.3'
+gem "wysiwyg-rails"
+gem 'carrierwave'
 gem "rails_admin_import", "~> 2.1"
+gem 'wicked_pdf'
+gem 'prawn'
+gem 'prawn-table'
+gem 'mechanize'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
