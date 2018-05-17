@@ -15,5 +15,10 @@
 //= require turbolinks
 //= require_tree .
 //= require froala_editor.min.js
+//= require gentelella
+//= require jqvmap/maps/jquery.vmap.world
+//= require jqvmap/maps/jquery.vmap.usa
+//= require gentelella-custom
 
+$(".dropdown-toggle").dropdown();	
 $('selector').froalaEditor();

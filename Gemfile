@@ -38,6 +38,8 @@ gem 'wicked_pdf'
 gem 'prawn'
 gem 'prawn-table'
 gem 'mechanize'
+gem 'gentelella-rails'
+gem 'modernizr-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
