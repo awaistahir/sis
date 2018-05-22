@@ -1,0 +1,70 @@
+<div class="col-md-12 col-sm-12 col-xs-12">
+	<div class="x_panel">
+		<div class="x_title">
+			<h2>Students <small> <%= @students.count %></small></h2>
+			<ul class="nav navbar-right panel_toolbox">
+				<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+				</li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+					<ul class="dropdown-menu" role="menu">
+						<li><a href="#">Settings 1</a>
+						</li>
+						<li><a href="#">Settings 2</a>
+						</li>
+					</ul>
+				</li>
+				<li><a class="close-link"><i class="fa fa-close"></i></a>
+				</li>
+			</ul>
+			<div class="clearfix"></div>
+		</div>
+		<div class="x_content">
+
+			<div id="" class="table-responsive">
+				<table class="table table-striped jambo_table bulk_action">
+					<thead>
+						<tr class="headings">
+							<th>
+								<input type="checkbox" id="check-all" class="flat">
+							</th>
+
+							<th class="column-title">#</th>
+							<th class="column-title">Name </th>
+							<th class="column-title">Father Name </th>
+							<th class="column-title">DOB </th>
+							<th class="column-title">Father CNIC </th>
+							<th class="column-title">Mobile </th>
+							<th class="column-title">Section </th>
+							<th class="column-title no-link last"><span class="nobr">Action</span>
+							</th>
+							<th class="bulk-actions" colspan="7">
+								<a class="antoo" style="color:#fff; font-weight:500;">Bulk Actions ( <span class="action-cnt"> </span> ) <i class="fa fa-chevron-down"></i></a>
+							</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<% students.each_with_index do |student, i| %>
+						<tr class="even pointer">
+							<td class="a-center">
+								<input type="checkbox" class="flat" name="table_records">
+							</td>
+
+							<td class=" "><b><%= i+1 %></b></td>
+							<td class=" "><b><%= student.name %></b></td>
+							<td class=" "><%= student.father_name %></td>
+							<td class=" "><%= student.dob %></td>
+							<td class=" "><%= student.father_cnic %></td>
+							<td class=" "><%= student.mobile %></td>
+							<td class="a-right a-right "><%= link_to student.section.grade + " " + student.section.name , section_path(student.section_id) %></td>
+							<td class=" last"><%= link_to 'Show', student_path(student) %></td>
+						</tr>							
+						<% end %>
+					</tbody>
+				</table>
+			</div>
+
+		</div>
+	</div>
+</div>	

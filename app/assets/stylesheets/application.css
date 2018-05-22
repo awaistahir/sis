@@ -21,3 +21,15 @@
  */
  @import "gentelella";
  @import "gentelella-custom";
+
+ @media (min-width: 1200px){
+ 	.container {
+ 		width: 100%;
+ 	}
+ }
+ .container {
+ 	margin-right: auto;
+ 	margin-left: auto;
+ 	padding-left: 0px; 
+ 	padding-right: 0px; 
+ }

@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   # resources :questions 
   get 'questions/print', :to => 'questions#print'
   resources :teachers 
+  resources :students 
+  resources :sections 
   root to: "static#index"
   get "/index.html" => "static#index"
   get "/index2.html" => "static#index2"
