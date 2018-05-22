@@ -69,6 +69,7 @@ GEM
     execjs (2.7.0)
     fastclick-rails (1.0.1)
     ffi (1.9.23-x86-mingw32)
+    filterrific (5.0.1)
     flot-rails (0.0.7)
       jquery-rails
     font-awesome-rails (4.7.0.4)
@@ -286,6 +287,7 @@ DEPENDENCIES
   carrierwave
   coffee-rails (~> 4.2)
   debugger
+  filterrific
   gentelella-rails
   jbuilder (~> 2.5)
   jquery-rails

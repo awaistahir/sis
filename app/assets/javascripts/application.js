@@ -19,6 +19,6 @@
 //= require jqvmap/maps/jquery.vmap.world
 //= require jqvmap/maps/jquery.vmap.usa
 //= require gentelella-custom
-
+//= require filterrific/filterrific-jquery
 $(".dropdown-toggle").dropdown();	
 $('selector').froalaEditor();
