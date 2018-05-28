@@ -3,8 +3,8 @@ class Section < ApplicationRecord
   has_many :teachers, through: :periods
 
 	has_many :students
-	enum name: {Iqbal: 0, Jinnah: 1, Ghazali: 2}
-	enum grade: {"Katchi" => 1, "1st" => 2, "2nd" => 3, "3rd" => 4, "4th" => 5, "5th" => 6,  "6th" => 7, "7th" => 8, "8th" => 9, "9th" =>10, "10th" => 11 }
+	enum name: {iqbal: 0, jinnah: 1, ghazali: 2, fatima: 3}
+	enum grade: {"katchi" => 1, "1" => 2, "2" => 3, "3" => 4, "4" => 5, "5" => 6,  "6" => 7, "7" => 8, "8" => 9, "9" =>10, "10" => 11 }
 
 	def self.options_for_select
     order('LOWER(name)').map { |e| [e.grade  + "  " + e.name   , e.id] }
