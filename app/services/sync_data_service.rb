@@ -18,8 +18,8 @@ class SyncDataService
 
 		return false unless form.exist?
 
-		form.text_field(name: 'u_username').set("33110240")
-		form.text_field(name: 'u_password').set("7961529")
+		form.text_field(name: 'u_username').set("1382331102401382")
+		form.text_field(name: 'u_password').set("475279615294752")
 		browser.button(type: 'submit').click
 		browser.goto("https://sis.punjab.gov.pk/students/listing")
 		browser.table(:class, 'table').trs.each_with_index do |tr, row_no|
@@ -61,8 +61,8 @@ class SyncDataService
 			form = page.form_with(:action => 'http://sis.punjab.gov.pk/user/login')
 		end
 
-		form.u_username = "33110240"
-		form.u_password = "7961529"
+		form.u_username = "1382331102401382"
+		form.u_password = "475279615294752"
 		page = form.submit
 
 		# Section.delete_all
