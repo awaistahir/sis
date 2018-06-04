@@ -41,7 +41,7 @@ gem 'mechanize'
 gem 'gentelella-rails'
 gem 'modernizr-rails'
 gem 'filterrific'
-
+gem 'watir'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem "debugger", platform: :mri
