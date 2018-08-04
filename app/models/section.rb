@@ -10,4 +10,12 @@ class Section < ApplicationRecord
     order('LOWER(name)').map { |e| [e.grade  + "  " + e.name   , e.id] }
   end
 
+  def name_location
+      self.grade + '  ' + self.name + ' ' + self.is_current.to_s
+  end
+
+  def section_full_name
+    self.grade + '  ' + self.name 
+  end
+
 end

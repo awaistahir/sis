@@ -19,13 +19,15 @@
       </ul>
       <div class="clearfix"></div>
     </div>
+
     <div class="x_content">
 
       <table class="table table-bordered">
         <thead>
           <tr>
-            <% Period.uniq.pluck(:period_no).each do |period| %>
-            <th><%= period %></th>
+            <%# Period.uniq.pluck(:period_no).each do |period| %>
+            <% @periods.each do |period| %>
+            <th><%= period.period_no %></th>
             <% end %>  
           </tr>
         </thead>
@@ -51,7 +53,14 @@
     </div>
   </div>
 </div>
-
+<div class="col-md-12 col-sm-12 col-xs-12">
+  <%= link_to(result_section_path(@section),
+    class: 'btn btn-primary pull-right') do %>
+    <%= content_tag('i', nil, class: 'fa fa-download') %> Result
+<% end %>
+</div>
+<br>
+<br>
 <%= render(
   partial: 'sections/students',
   locals: { students: @students }

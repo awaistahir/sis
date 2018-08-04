@@ -3,13 +3,13 @@ class Teacher < ApplicationRecord
 	
 	has_many :periods
   has_many :sections, through: :periods
-	enum school: { High: 0, Junior: 1 }
+  enum school: { High: 0, Junior: 1 }
 
-	filterrific(
-		available_filters: [
-			:sorted_by,
-			:search_query,
-			:with_section_id,
+  filterrific(
+    available_filters: [
+     :sorted_by,
+     :search_query,
+     :with_section_id,
 			# :with_created_at_gte
 		]
 		)
@@ -19,9 +19,13 @@ class Teacher < ApplicationRecord
 #   }
 
 def self.options_for_select
-    self.schools.map {|k, v| [k.humanize.capitalize, v]}
+  self.schools.map {|k, v| [k.humanize.capitalize, v]}
 end
 
+def section_incharge
+  incharge = self.periods.where(incharge: true).first
+  incharge.blank? ? nil : incharge.section 
+end
 # Sort By All These Options
 scope :sorted_by, lambda { |sort_option|
   # extract the sort direction from the param value.
@@ -82,5 +86,16 @@ scope :search_query, lambda { |query|
   		*teacher_name.map { |e| [e] * num_or_conds }.flatten
   		)
 }
+
+
+  def self.faculty(section)
+    if section == 0
+      self.where("bps >= 14 and school ='0'" ).count
+    elsif section == 1
+      self.where("bps >= 14 and school ='1'" ).count
+    else
+      self.where("bps < 14" ).count
+    end 
+  end
 
 end

@@ -2,6 +2,23 @@ class Student < ApplicationRecord
 
 
 	belongs_to :section
+  has_many :bise_exam_masters
+
+
+
+
+def result(student_class)
+  self.bise_exam_masters.where(student_class: student_class).first
+end
+
+def result_master
+    self.result(10)
+end
+
+def result_details
+   result_master.bise_exam_details unless result_master.blank?
+end
+
 
 	filterrific(
 		# default_filter_params: { sorted_by: 'created_at_desc' },

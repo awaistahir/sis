@@ -10,7 +10,31 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180520134932) do
+ActiveRecord::Schema.define(version: 20180802132742) do
+
+  create_table "bise_exam_details", force: :cascade do |t|
+    t.integer  "bise_exam_master_id"
+    t.string   "subject"
+    t.integer  "max_marks"
+    t.string   "part1"
+    t.string   "part2"
+    t.integer  "practical"
+    t.string   "total_remarks"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["bise_exam_master_id"], name: "index_bise_exam_details_on_bise_exam_master_id"
+  end
+
+  create_table "bise_exam_masters", force: :cascade do |t|
+    t.integer  "student_id"
+    t.string   "remarks"
+    t.date     "date"
+    t.integer  "roll_no"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.string   "student_class"
+    t.index ["student_id"], name: "index_bise_exam_masters_on_student_id"
+  end
 
   create_table "courses", force: :cascade do |t|
     t.string   "name"
@@ -48,8 +72,9 @@ ActiveRecord::Schema.define(version: 20180520134932) do
     t.integer  "name"
     t.integer  "grade"
     t.date     "year"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.boolean  "is_current", default: true
   end
 
   create_table "students", force: :cascade do |t|

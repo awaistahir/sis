@@ -26,7 +26,35 @@ RailsAdmin.config do |config|
   # config.model 'Question' do
   #   field :statment, :froala
   # end
-  config.actions do
+  
+  config.model Section do
+    object_label_method :name_location
+  end
+
+  config.model Course do
+    object_label_method :grade_name
+  end
+
+  config.model Period do
+    edit do
+      field :teacher do
+        inline_add false
+        inline_edit false
+      end
+      field :section do
+        inline_add false
+        inline_edit false
+      end
+      field :course do
+        inline_add false
+        inline_edit false
+      end
+    fields :period_no, :incharge, :no_of_days #, ...
+
+  end
+end
+
+config.actions do
     dashboard                     # mandatory
     index                         # mandatory
     new

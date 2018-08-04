@@ -22,7 +22,14 @@ class StudentsController < ApplicationController
 
 	def show
 		@student = Student.find(params[:id])
+		puts "5%%%%%%%%%%%%%%%%%"
+		puts @student
+
+		puts "5%%%%%%%%%%%%%%%%%"
+		@result10 = @student.result(10)
+		@result10_details = @result10.bise_exam_details unless @result10.blank?
 	end
+
 
 end
 

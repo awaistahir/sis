@@ -1,0 +1,81 @@
+<div class="clearfix"></div>
+
+<div class="row">
+	<div class="col-md-12 col-sm-12 col-xs-12">
+		<div class="x_panel">
+			<div class="x_title">
+				<h2>Students <small><%= @students.count %></small></h2>
+				<ul class="nav navbar-right panel_toolbox">
+					<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
+						<ul class="dropdown-menu" role="menu"> 
+							<li><a href="#">Settings 1</a>
+							</li>
+							<li><a href="#">Settings 2</a>
+							</li>
+						</ul>
+					</li>
+					<li><a class="close-link"><i class="fa fa-close"></i></a>
+					</li>
+				</ul>
+				<div class="clearfix"></div>
+			</div>
+
+			<div class="x_content">
+
+				<div class="table-responsive">
+
+					<% @students.each do |student| %>
+
+					<% unless student.result_master.blank? %>
+					<div class="row">
+						<div class="col-sm-3">
+							<h4>Roll No: <b><%= student.result_master.roll_no %> </b></h4>
+							<h4>Name: <b><%= student.name %> </b></h4>
+							<h4>Father Name: <b><%= student.father_name %> </b></h4>
+							<br/>
+						</div>
+						<div class="col-sm-9">
+							<table class="data table table-striped no-margin" >
+								<thead>
+									<tr>
+										<th>#</th>
+										<th>Subject</th>
+										<th>Max Marks</th>
+										<th>Part 1</th>
+										<th>Part 2</th>
+										<th>Practical</th>
+										<th>Total / Remarks</th>
+									</tr>
+								</thead>
+								<tbody>
+									<% student.result_details.each_with_index do |paper, sr| %>
+									<tr>
+										<td><%= sr+1 %> </td>
+										<td><b><%= paper.subject %></b></td>
+										<td><%= paper.max_marks %></td>
+										<td><%= paper.part1 %></td>
+										<td><%= paper.part2 %></td>
+										<td><%= paper.practical %></td>
+										<td style="text-align: center;" class="<%=  paper.total_remarks.is_number? ? 'success' : 'danger' %>"><b><%= paper.total_remarks %></b></td>
+									</tr>
+									<% end %>
+									<tr class="<%=  student.result_master.remarks.is_number? ? 'success' : 'danger' %>"><td colspan="6"></td><td><b>Remarks: <%=  student.result_master.remarks %></b></td></tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<br>
+					<br>
+
+					<% else %>
+					<h4>No Result Found</h4>  
+					<% end %> 
+					<% end %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

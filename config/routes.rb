@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   get 'questions/print', :to => 'questions#print'
   resources :teachers 
   resources :students 
-  resources :sections 
+  resources :sections  do
+    member do
+      get :result
+    end
+  end
   root to: "static#index"
   get "/index.html" => "static#index"
   get "/index2.html" => "static#index2"
