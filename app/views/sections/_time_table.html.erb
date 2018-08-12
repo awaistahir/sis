@@ -1,0 +1,34 @@
+<div class="card">
+  <div class="card-header card-header-text" data-background-color="rose">
+    <h4 class="card-title">Time Table</h4>
+    <p class="category">Year 2018</p>
+  </div>
+  <div class="card-content table-responsive">
+    <table class="table table-hover">
+      <tr>
+        <th>Period No</th>
+        <% @periods.each do |period| %>
+        <th><%= period.period_no %></th>
+        <% end %>  
+      </tr>
+      <tr>          
+        <th>Teacher</th>
+        <% @periods.each do |period| %>
+        <td><%= period.teacher.name %></td>
+        <% end %>  
+      </tr>
+      <tr> 
+      <th>Course</th>          
+        <% @periods.each do |period| %>
+        <td><%= period.course.name %></td>
+        <% end %>  
+      </tr>
+      <tr>  
+        <th>No of Days</th>        
+        <% @periods.each do |period| %>
+        <td><%= period.no_of_days %></td>
+        <% end %>  
+      </tr>
+    </table>
+  </div>
+</div>

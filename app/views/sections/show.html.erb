@@ -1,67 +1,39 @@
-<div class="col-md-12 col-sm-12 col-xs-12">
-  <div class="x_panel">
-    <div class="x_title">
-      <h2><%= @section.grade + " " + @section.name %> <small> <%#= @section.periods.where(:incharge => true).first.teacher.name %></small></h2>
-      <ul class="nav navbar-right panel_toolbox">
-        <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-          <ul class="dropdown-menu" role="menu">
-            <li><a href="#">Settings 1</a>
-            </li>
-            <li><a href="#">Settings 2</a>
-            </li>
-          </ul>
-        </li>
-        <li><a class="close-link"><i class="fa fa-close"></i></a>
-        </li>
-      </ul>
-      <div class="clearfix"></div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title"><%= @section.section_full_name %></h4>
+      </div>
+      <div class="card-content">
+        <ul class="nav nav-pills nav-pills-rose">
+          <li class="active">
+            <a href="#pill1" data-toggle="tab">Students</a>
+          </li>
+          <li>
+            <a href="#pill2" data-toggle="tab">Time Table</a>
+          </li>
+          <li>
+            <a href="#pill3" data-toggle="tab">Options</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="pill1">
+            <%= render(
+              partial: 'sections/students',
+              locals: { students: @students }
+              ) %>
+            </div>
+            <div class="tab-pane" id="pill2">
+              <%= render(
+                partial: 'sections/time_table',
+                locals: { periods: @periods }
+                )%>
+              </div>
+              <div class="tab-pane" id="pill3">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <div class="x_content">
-
-      <table class="table table-bordered">
-        <thead>
-          <tr>
-            <%# Period.uniq.pluck(:period_no).each do |period| %>
-            <% @periods.each do |period| %>
-            <th><%= period.period_no %></th>
-            <% end %>  
-          </tr>
-        </thead>
-        <tbody>
-          <tr>          
-            <% @periods.each do |period| %>
-            <td><%= period.teacher.name %></td>
-            <% end %>  
-          </tr>
-          <tr>          
-            <% @periods.each do |period| %>
-            <td><%= period.course.name %></td>
-            <% end %>  
-          </tr>
-          <tr>          
-            <% @periods.each do |period| %>
-            <td><%= period.no_of_days %></td>
-            <% end %>  
-          </tr>
-        </tbody>
-      </table>
-
-    </div>
-  </div>
-</div>
-<div class="col-md-12 col-sm-12 col-xs-12">
-  <%= link_to(result_section_path(@section),
-    class: 'btn btn-primary pull-right') do %>
-    <%= content_tag('i', nil, class: 'fa fa-download') %> Result
-<% end %>
-</div>
-<br>
-<br>
-<%= render(
-  partial: 'sections/students',
-  locals: { students: @students }
-  ) %>

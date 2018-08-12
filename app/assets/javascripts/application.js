@@ -10,15 +10,32 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
+//= require froala_editor.min.js
+//= require filterrific/filterrific-jquery
+//= require material/jquery-3.1.1.min
+//= require material/jquery-ui.min
+//= require rails-ujs
 //= require turbolinks
 //= require_tree .
-//= require froala_editor.min.js
-//= require gentelella
-//= require jqvmap/maps/jquery.vmap.world
-//= require jqvmap/maps/jquery.vmap.usa
-//= require gentelella-custom
-//= require filterrific/filterrific-jquery
-$(".dropdown-toggle").dropdown();	
-$('selector').froalaEditor();
+//= require popper
+//= require material/perfect-scrollbar.jquery.min
+//= require material/moment.min
+//= require material/bootstrap.min
+//= require material/bootstrap-datetimepicker
+//= require material/bootstrap-notify
+//= require material/chartist.min
+//= require material/google-maps-api
+//= require material/jasny-bootstrap.min
+//= require material/jquery.bootstrap-wizard
+//= require material/jquery.datatables
+//= require material/jquery.select-bootstrap
+//= require material/jquery.sharrre
+//= require material/jquery.tagsinput
+//= require material/jquery.validate.min
+//= require material/jquery-jvectormap
+//= require material/material.min
+//= require material/material-dashboard
+//= require material/nouislider.min
+//= require material/sweetalert2
+//= require material/demo
+

@@ -1,0 +1,35 @@
+<div class="card">
+  <div class="card-header card-header-text" data-background-color="rose">
+    <h4 class="card-title">Time Table</h4>
+    <p class="category">Year 2018</p>
+  </div>
+  <div class="card-content table-responsive">
+    <table class="table table-hover">
+      <tr>
+        <%# Period.uniq.pluck(:period_no).each do |period| %>
+        <th>Period No</th>
+        <% @teacher.periods.order(:period_no).each do |period| %>
+        <th><%= period.period_no %></th>
+        <% end %>  
+      </tr>
+      <tr>  
+        <th>Course</th>        
+        <% @teacher.periods.order(:period_no).each do |period| %>
+        <td><%= period.course.name %></td>
+        <% end %>  
+      </tr>
+      <tr>          
+        <th>Section</th>
+        <% @teacher.periods.order(:period_no).each do |period| %>
+        <td><%= period.section.section_full_name %></td>
+        <% end %>  
+      </tr>
+      <tr>        
+        <th>No of Days</th>  
+        <% @teacher.periods.order(:period_no).each do |period| %>
+        <td><%= period.no_of_days %></td>
+        <% end %>  
+      </tr>
+    </table>
+  </div>
+</div>

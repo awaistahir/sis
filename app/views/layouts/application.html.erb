@@ -1,50 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <%= csrf_meta_tags %>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <!-- Meta, title, CSS, favicons, etc. -->
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <%= stylesheet_link_tag 'application', media: 'all' %>
+<html>
+<head>
+  <title>RailsTemplate</title>
+  <%= csrf_meta_tags %>
 
-    <title><%= yield :title %></title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+  <%= stylesheet_link_tag "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" %>
 
-  </head>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+</head>
 
-  <body class="nav-md ">
-    <div class="container body ">
-      <div class="main_container">
-        <div class="col-md-3 left_col">
-          <div class="left_col scroll-view">
-            <%= render partial: 'layouts/shared/leftnav' %>
-          </div>
-        </div>
+<body>
+  <div class="wrapper">
+    <%= render partial: 'layouts/shared/leftnav' %>
+  </div>
+  <div class="main-panel">
+  	<%= render partial: 'layouts/shared/topbar' %>
+  	<div class="content">
+    <div class="container-fluid">
+<%= yield %>
+	<%#= render partial: 'layouts/shared/settings' %>
+</div>
+</div>
+</body>
 
-        <!-- top navigation -->
-        <div class="top_nav">
-          <div class="nav_menu">
-            <nav>
-              <%= render partial: 'layouts/shared/topnav' %>
-            </nav>
-          </div>
-        </div>
-        <!-- /top navigation -->
 
-        <!-- page content -->
-        <div class="right_col" role="main">
-          <%= yield %>
-        </div>
-        <!-- /page content -->
-
-        <!-- footer content -->
-        <footer>
-          <%= render partial: 'layouts/shared/footer' %>
-        </footer>
-        <!-- /footer content -->
-      </div>
-    </div>
-    <%= javascript_include_tag 'application' %>
-  </body>
 </html>

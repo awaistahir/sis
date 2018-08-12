@@ -1,0 +1,44 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header card-header-text" data-background-color="rose">
+        <h4 class="card-title">Result</h4>
+      </div>
+      <div class="card-content table-responsive">
+        <% unless @result10.blank? %>
+        <h4>Roll No: <b><%= @result10.roll_no %> </b></h4>
+        <br/>
+        <table class="table table-hover" >
+          <thead class="text-warning">
+            <tr>
+              <th>#</th>
+              <th>Subject</th>
+              <th>Max Marks</th>
+              <th>Part 1</th>
+              <th>Part 2</th>
+              <th>Practical</th>
+              <th>Total / Remarks</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% @result10_details.each_with_index do |paper, sr| %>
+            <tr>
+              <td><%= sr+1 %> </td>
+              <td><b><%= paper.subject %></b></td>
+              <td><%= paper.max_marks %></td>
+              <td><%= paper.part1 %></td>
+              <td><%= paper.part2 %></td>
+              <td><%= paper.practical %></td>
+              <td style="text-align: center;" class="<%= paper.total_remarks.is_number? ? 'success' : 'danger' %>"><b><%= paper.total_remarks %></b></td>
+
+            </tr>
+            <% end %>
+            <tr><td colspan="6"></td><td class="<%= @result10.remarks.is_number? ? 'success' : 'danger' %>"><b>Remarks: <%= @result10.remarks %></b></td></tr>
+          </tbody>
+        </table>
+        <% else %>
+        <h4>No Result Found</h4>  
+        <% end %>
+      </div>
+    </div>
+  </div>

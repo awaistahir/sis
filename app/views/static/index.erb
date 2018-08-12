@@ -1,15 +1,91 @@
-<div class="row tile_count">
-  <div class="col-md-4 col-sm-6 col-xs-8 tile_stats_count">
-    <span class="count_top"><i class="fa fa-user"></i> High Section Teachers</span>
-    <div class="count"><%=  Teacher.faculty(0) %> </div>
+<div class="row">
+  <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="card card-stats">
+      <div class="card-header" data-background-color="orange">
+        <i class="material-icons">weekend</i>
+      </div>
+      <div class="card-content">
+        <p class="card-category">High Section Teachers</p>
+        <h3 class="card-title"><%=  Teacher.faculty(0) %></h3>
+      </div>
+      <div class="card-footer">
+        <div class="stats">
+          <i class="material-icons text-danger">school</i>
+          GMCHS ISLAMNAGAR
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="col-md-4 col-sm-6 col-xs-8 tile_stats_count">
-    <span class="count_top"><i class="fa fa-user"></i> Junior Section Teachers</span>
-    <div class="count"><%=  Teacher.faculty(1) %> </div>
+  <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="card card-stats">
+      <div class="card-header" data-background-color="rose">
+        <i class="material-icons">equalizer</i>
+      </div>
+      <div class="card-content">
+        <p class="card-category">Junior Section Teachers</p>
+        <h3 class="card-title"><%=  Teacher.faculty(1) %></h3>
+      </div>
+      <div class="card-footer">
+        <div class="stats">
+          <i class="material-icons">local_offer</i> Junior Section
+        </div>
+      </div>
+    </div>
   </div>
-  <div class="col-md-4 col-sm-6 col-xs-8 tile_stats_count">
-    <span class="count_top"><i class="fa fa-user"></i> Non Teaching Staffs</span>
-    <div class="count"><%=  Teacher.faculty(2) %> </div>
+  <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="card card-stats">
+      <div class="card-header" data-background-color="green">
+        <i class="material-icons">store</i>
+      </div>
+      <div class="card-content">
+        <p class="card-category">Non Teaching Staff</p>
+        <h3 class="card-title"><%=  Teacher.faculty(2) %></h3>
+      </div>
+      <div class="card-footer">
+        <div class="stats">
+          <i class="material-icons">date_range</i> Last 24 Hours
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="card card-stats">
+      <div class="card-header" data-background-color="blue">
+        <i class="fa fa-graduation-cap"></i>
+      </div>
+      <div class="card-content">
+        <p class="category">Enrolled Student</p>
+        <h3 class="card-title"><%= Student.where(section_id: Section.where(is_current: 1).pluck(:id)).count %></h3>
+      </div>
+      <div class="card-footer">
+        <div class="stats">
+          <i class="material-icons">update</i> Just Updated
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+<!-- <div class="row">
+  <div class="col-md-12">
+    <div class="card card-chart">
+      <div class="card-header" data-background-color="blue">
+        <div id="simpleBarChart" class="ct-chart"></div>
+      </div>
+      <div class="card-content">
+        <h4 class="card-title">Simple Bar Chart</h4>
+        <p class="category">Bar Chart</p>
+      </div>
+    </div>
+  </div>
+</div>
+ -->
+<%#= Section.joins(:students).group("grade").having(is_current: 1).count.keys %>
+<!-- <script type="text/javascript">
+  var data = {  
+  labels: <%= ['a','b','d','c','s','e','g'] %>,
 
+  series: [[20, 60, 12, 20, 18, 20, 10]]
+  };
+
+new Chartist.Bar('#simpleBarChart', data);
+</script> -->

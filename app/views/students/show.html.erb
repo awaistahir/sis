@@ -1,98 +1,45 @@
-<div class="">
-  <div class="row">
-    <div class="col-md-12 col-sm-12 col-xs-12">
-      <div class="x_panel">
-        <div class="x_title">
-          <h2>Student Profile</h2>
-          <ul class="nav navbar-right panel_toolbox">
-            <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-            </li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="#">Settings 1</a>
-                </li>
-                <li><a href="#">Settings 2</a>
-                </li>
-              </ul>
-            </li>
-            <li><a class="close-link"><i class="fa fa-close"></i></a>
-            </li>
-          </ul>
-          <div class="clearfix"></div>
-        </div>
-        <div class="x_content">
-          <div class="col-md-3 col-sm-3 col-xs-12 profile_left">
-            <div class="profile_img">
-              <div id="crop-avatar">
-                <!-- Current avatar -->
-                <%= image_tag("user.png", alt: "Teacher", class: "img-responsive avatar-view") %>
-              </div>
-            </div>
-            <h3><%= @student.name %></h3>
-            <h3><%= @student.father_name %></h3>
-
-            <ul class="list-unstyled user_data">
-              <li><i class="fa fa-map-marker user-profile-icon"></i> <%= @student.section.grade + " " +  @student.section.name %>
-              </li>
-
-            </ul>
-
+<div class="row">
+  <div class="col-md-4">
+    <div class="card card-profile">
+      <div class="card-avatar">
+        <%= image_tag("user.png", alt: "Teacher", class: "img-responsive avatar-view") %>
+      </div>
+      <div class="card-content">
+        <h6 class="category text-gray"><%= @student.name %>  /  <%= @student.father_name %></h6>
+        <h4 class="card-title"><%= @student.section.grade + " " +  @student.section.name %></h4>
+        <h4 class="card-title">DOB: <%= @student.dob %></h4>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header">
+        <h4 class="card-title">Student -
+          <small>Profile</small>
+        </h4>
+      </div>
+      <div class="card-content">
+        <ul class="nav nav-pills nav-pills-rose">
+          <li class="active">
+            <a href="#pill1" data-toggle="tab">Personal Information</a>
+          </li>
+          <li>
+            <a href="#pill2" data-toggle="tab">Result</a>
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="pill1">
+            <%= render(
+              partial: 'students/personal_information')
+              %>
           </div>
-          <div class="col-md-9 col-sm-9 col-xs-12">
-
-            
-            <div class="" role="tabpanel" data-example-id="togglable-tabs">
-              <ul id="myTab" class="nav nav-tabs bar_tabs" role="tablist">
-                <li role="presentation" class="active"><a href="#tab_content1" id="home-tab" role="tab" data-toggle="tab" aria-expanded="true">Result</a>
-                </li>
-              </ul>
-              <div id="myTabContent" class="tab-content">
-                <div role="tabpanel" class="tab-pane fade active in" id="tab_content1" aria-labelledby="home-tab">
-                  <% unless @result10.blank? %>
-                    <h4>Roll No: <b><%= @result10.roll_no %> </b></h4>
-                    <br/>
-                    <table class="data table table-striped no-margin" >
-                      <thead>
-                        <tr>
-                          <th>#</th>
-                          <th>Subject</th>
-                          <th>Max Marks</th>
-                          <th>Part 1</th>
-                          <th>Part 2</th>
-                          <th>Practical</th>
-                          <th>Total / Remarks</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <% @result10_details.each_with_index do |paper, sr| %>
-                          <tr>
-                            <td><%= sr+1 %> </td>
-                            <td><b><%= paper.subject %></b></td>
-                            <td><%= paper.max_marks %></td>
-                            <td><%= paper.part1 %></td>
-                            <td><%= paper.part2 %></td>
-                            <td><%= paper.practical %></td>
-                            <td style="text-align: center;"><b><%= paper.total_remarks %></b></td>
-                            
-                          </tr>
-                        <% end %>
-                        <tr><td colspan="6"></td><td><b>Remarks: <%= @result10.remarks %></b></td></tr>
-                      </tbody>
-                    </table>
-                  <% else %>
-                      <h4>No Result Found</h4>  
-                  <% end %>  
-                  <!-- end user projects -->
-
-                </div>
-
-              </div>
-            </div>
+          <div class="tab-pane" id="pill2">
+            <%= render(
+              partial: 'students/result')
+              %>
           </div>
         </div>
       </div>
     </div>
   </div>
-
 </div>

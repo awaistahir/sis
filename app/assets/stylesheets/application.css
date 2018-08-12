@@ -12,24 +12,15 @@
  *
  *= require_tree .
  *= require_self
+ *= require font-awesome
+ *= require material/material-dashboard.css
+ *= require material/bootstrap.min.css
+ *= require material/font-awesome.css
+ *= require material/demo.css
+ *= require material/google-roboto-300-700.css
  */
-/*
+ /*
  @import "froala_editor.min";
  @import "froala_style.min";
  @import "font-awesome-sprockets";
- @import "font-awesome";
  */
- @import "gentelella";
- @import "gentelella-custom";
-
- @media (min-width: 1200px){
- 	.container {
- 		width: 100%;
- 	}
- }
- .container {
- 	margin-right: auto;
- 	margin-left: auto;
- 	padding-left: 0px; 
- 	padding-right: 0px; 
- }

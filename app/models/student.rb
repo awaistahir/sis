@@ -6,6 +6,10 @@ class Student < ApplicationRecord
 
 
 
+def current_enrolled
+ Student.where(section_id: Section.where(is_current: 1).pluck(:id)).count
+end
+
 
 def result(student_class)
   self.bise_exam_masters.where(student_class: student_class).first

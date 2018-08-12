@@ -1,87 +1,61 @@
-<div class="clearfix"></div>
-
 <div class="row">
-	<div class="col-md-12 col-sm-12 col-xs-12">
-		<div class="x_panel">
-			<div class="x_title">
-				<h2>Students <small></small></h2>
-				<ul class="nav navbar-right panel_toolbox">
-					<li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a>
-					</li>
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><i class="fa fa-wrench"></i></a>
-						<ul class="dropdown-menu" role="menu">
-							<li><a href="#">Settings 1</a>
-							</li>
-							<li><a href="#">Settings 2</a>
-							</li>
-						</ul>
-					</li>
-					<li><a class="close-link"><i class="fa fa-close"></i></a>
-					</li>
-				</ul>
-				<div class="clearfix"></div>
+	<div class="col-md-12"> 
+		<div class="card">
+			<div class="card-header card-header-icon" data-background-color="rose">
+				<i class="material-icons">list</i>
 			</div>
-
-			<div class="x_content">
-				<form id="demo-form2" data-parsley-validate class="form-horizontal form-label-left">
-
+			<div class="card-content">
+				<h4 class="card-title">Students</h4>
 				<%= form_for_filterrific @filterrific do |f| %>
 
-					<div class="form-group">
-						<label class="control-label col-md-3 col-sm-3 col-xs-12" for="first-name">Name<span class="required">*</span>
-						</label>
-						<div class="col-md-6 col-sm-6 col-xs-12">
-							<%= f.text_field(
-								:search_query,
-								class: 'filterrific-periodically-observed form-control col-md-7 col-xs-12'
-									) %>
-						</div>
-					</div>
-
-						<div class="form-group">
-							<label class="control-label col-md-3 col-sm-3 col-xs-12">Section</label>
-							<div class="col-md-6 col-sm-6 col-xs-12">
-								<%= f.select(
-									:with_section_id,
-									@filterrific.select_options[:with_section_id],
-									{ include_blank: '- Any -' },
-									class: "form-control filterrific-periodically-observed"
-										) %>
-							</div>
-						</div>
-
-						<div class="form-group">
-							<label class="control-label col-md-3 col-sm-3 col-xs-12">Sorted by</label>
-							<div class="col-md-6 col-sm-6 col-xs-12">
-								<%= f.select(
-									:sorted_by,
-									@filterrific.select_options[:sorted_by],
-									{ include_blank: '- Any -' },
-									class: "form-control filterrific-periodically-observed"
-										) %>
-
-							</div>
-						</div>
-
-						<div class="form-group">
-              <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
-
-							<%= link_to(
-								'Reset filters',
-								reset_filterrific_url,
-								class: "btn btn-primary"
+				<div class="col-sm-3">
+					<div class="form-group label-floating">
+						<label class="control-label">Name</label>
+						<%= f.text_field(
+							:search_query,
+							class: 'filterrific-periodically-observed form-control'
 								) %>
-              </div>
-            </div>
-						
-								<%# add an automated spinner to your form when the list is refreshed %>
-								<%= render_filterrific_spinner %>
-								<% end %>
+							</div>
+						</div>
 
-								<%= render(
-									partial: 'students/list',
-									locals: { students: @students }
+						<div class="col-sm-3">
+							<%= f.select(
+								:with_section_id,
+								@filterrific.select_options[:with_section_id],
+								{ include_blank: '- Section -' },
+								class: "selectpicker filterrific-periodically-observed", "data-style" => "btn btn-primary btn-round"
 									) %>
 
+								</div>
+
+								<div class="col-sm-3">
+									<%= f.select(
+										:sorted_by,
+										@filterrific.select_options[:sorted_by],
+										{ include_blank: '- Sort BY -' },
+										class: "selectpicker filterrific-periodically-observed", "data-style" => "btn btn-primary btn-round"
+											) %>
+										</div>
+										<div class="col-sm-1">
+											<%= link_to(
+												'Reset filters',
+												reset_filterrific_url,
+												class: "btn btn-primary"
+													) %>
+												</div>
+												<%= render_filterrific_spinner %>
+												<% end %>	
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row">
+
+									<%= render(
+										partial: 'students/list',
+										locals: { students: @students }
+										) %>
+
+
+									</div>
 

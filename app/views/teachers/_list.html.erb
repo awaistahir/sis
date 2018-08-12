@@ -1,36 +1,30 @@
 <div id="filterrific_results">
 	<% @teachers.each do |teacher| %>
-	<div class="col-md-4 col-sm-4 col-xs-12 profile_details">
-		<div class="well profile_view">
-			<div class="col-sm-12">
-				<h4 class="brief"><i><b><%= teacher.name %>  /  <%= teacher.father_name %></b></i></h4>
-				<div class="left col-xs-6">
-					<h4><b><%= teacher.designation %></b></h4>
-					<p><strong>BPS: </strong> <%= teacher.bps %> </p>
-					<ul class="list-unstyled">
-						<li><strong>CNIC: </strong> <%= teacher.cnic %> </li>
-						<li><strong>Mobile: </strong> <%= teacher.mobile %> </li>
-					</ul>
-				</div>
-				<div class="right col-xs-6 text-center">
-					<% if teacher.image.blank? %>
-					<%= image_tag("user.png", alt: "Teacher", class: "img-circle profile_img") %>
-					<% else %>					
-					<%= image_tag( teacher.image, alt: "Teacher", class: "img-circle profile_img") %>
-					<% end %>	
-				</div>
+	<div class="col-sm-6">
+		<div class="card card-testimonial">
+			<div class="icon">
+				<i class="material-icons">format_quote</i>
 			</div>
-			<div class="col-xs-12 bottom text-center">
-				<div class="col-xs-12 col-sm-6 emphasis">
-
-				</div>
-				<div class="col-xs-12 col-sm-3 pull-right emphasis">
-					<%= link_to  teacher_path(teacher), class: "btn btn-primary btn-xs" do %>
-					<i class="fa fa-user"></i>View Profile
-					<% end %>
+			<div class="card-content">
+				<h5 class="card-description">
+					<%= teacher.name %>  /  <%= teacher.father_name %>
+				</h5>
+			</div>
+			<div class="footer">
+				<h4 class="card-title"><%= teacher.designation %></h4>
+				<h6 class="category">BPS: <%= teacher.bps %></h6>
+				<div class="card-avatar">
+					<%= link_to  teacher_path(teacher) do %>
+					<% if teacher.image.blank? %>
+					<%= image_tag("user.png", alt: "Teacher", class: "img") %>
+					<% else %>					
+					<%= image_tag( teacher.image, alt: "Teacher", class: "img") %>
+					<% end %>	
+					<% end %>	
 				</div>
 			</div>
 		</div>
 	</div>
-	<% end%>
+<% end%>
+
 </div>

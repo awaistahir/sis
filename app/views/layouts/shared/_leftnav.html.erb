@@ -1,70 +1,85 @@
-<div class="clearfix"></div>
+<div class="sidebar" data-active-color="rose" data-background-color="black">
+   <!--
+        Tip 1: You can change the color of active element of the sidebar using: data-active-color="purple | blue | green | orange | red | rose"
+        Tip 2: you can also add an image using data-image tag
+        Tip 3: you can change the color of the sidebar with data-background-color="white | black"
+      -->
+      <div class="logo">
+        <a href="#" class="simple-text">
+          GMCHS ISLAMNAGAR
+        </a>
+      </div>
+      <div class="logo logo-mini">
+        <a href="#" class="simple-text">
+          GMCHS
+        </a>
+      </div>
+      <div class="sidebar-wrapper">
+        <div class="user">
+          <div class="photo">
+           <%= image_tag("user.png", alt: "Teacher") %>
+         </div>
+         <div class="info">
+          <a data-toggle="collapse" href="#collapseExample" class="collapsed">
+            Admin
+            <b class="caret"></b>
+          </a>
+          <div class="collapse" id="collapseExample">
+            <ul class="nav">
+              <li>
+                <a href="#">My Profile</a>
+              </li>
+              <li>
+                <a href="#">Edit Profile</a>
+              </li>
+              <li>
+                <a href="#">Settings</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <ul class="nav">
+        <li class="<%= 'active' if params[:controller] == 'static' %>">
+          <%= link_to(root_path, class: "nav-link" ) do %>
+          <i class="material-icons">dashboard</i>
+          <p>Dashboard</p>
+          <% end %>
+        </li>
 
-<!-- menu profile quick info -->
-<div class="profile clearfix">
-  <div class="profile_pic">
-    <img src="images/img.jpg" alt="..." class="img-circle profile_img">
-  </div>
-  <div class="profile_info">
-    <span>GMCHS</span>
-    <h2>Islamnagar</h2>
-  </div>
-</div>
-<!-- /menu profile quick info -->
-<br />
+        <li class="nav-item <%= 'active' if params[:controller] == 'teachers' %>  ">
+          <%= link_to(teachers_path, class: "nav-link" ) do %>
+          <i class="material-icons">account_box</i>
+          <p>Teachers Profile</p>
+          <% end %>
+        </li>
+        <li class="nav-item <%= 'active' if params[:controller] == 'sections' %> ">
+          <%= link_to(sections_path, class: "nav-link" ) do %>
+          <i class="material-icons">content_paste</i>
+          <p>Sections List</p>
+          <% end %>
+        </li>     
+        <li class="nav-item <%= 'active' if params[:controller] == 'students' %> ">
+          <%= link_to(students_path, class: "nav-link" ) do %>
+          <i class="material-icons">library_books</i>
+          <p>Students Profile</p>
+          <% end %>
+        </li>
+        <li>
+          <a data-toggle="collapse" href="#componentsExamples">
+            <i class="material-icons">apps</i>
+            <p>Registers
+              <b class="caret"></b>
+            </p>
+          </a>
+          <div class="collapse" id="componentsExamples">
+            <ul class="nav">
+              <li>
+                <a href="components/buttons.html">Result</a>
+              </li>
+            </ul>
+          </div>
+        </li>
 
-<!-- sidebar menu -->
-<div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
-  <div class="menu_section">
-
-    <ul class="nav side-menu">
-
-      <li>
-        <%= link_to(root_path) do %>
-        <i class="fa fa-home"></i>Home
-        <% end %>
-      </li>
-      <li>
-        <%= link_to(sections_path) do %>
-        <i class="fa fa-home"></i>Sections
-        <% end %>
-      </li>
-      <li>
-        <%= link_to(teachers_path) do %>
-        <i class="fa fa-home"></i>Teachers
-        <% end %>
-      </li>
-      <li>
-        <%= link_to(students_path) do %>
-        <i class="fa fa-home"></i>Students
-        <% end %>
-      </li>
-      <li><a><i class="fa fa-table"></i> Register <span class="fa fa-chevron-down"></span></a>
-        <ul class="nav child_menu">
-          <li><a href="tables.html">Result</a></li>
-          <li><a href="tables_dynamic.html">Table Dynamic</a></li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-
-</div>
-<!-- /sidebar menu -->
-
-<!-- /menu footer buttons -->
-<div class="sidebar-footer hidden-small">
-  <a data-toggle="tooltip" data-placement="top" title="Settings">
-    <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-  </a>
-  <a data-toggle="tooltip" data-placement="top" title="FullScreen">
-    <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
-  </a>
-  <a data-toggle="tooltip" data-placement="top" title="Lock">
-    <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
-  </a>
-  <a data-toggle="tooltip" data-placement="top" title="Logout" href="login.html">
-    <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
-  </a>
-</div>
-<!-- /menu footer buttons -->
-
+      </ul>
+    </div>
